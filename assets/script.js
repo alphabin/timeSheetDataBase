@@ -1,4 +1,13 @@
+var config = {
+    apiKey: "AIzaSyDLSCwjab1oJGzIbUjZ5IsumSonzQ3MIdA",
+    authDomain: "newtimesheet-5cb20.firebaseapp.com",
+    databaseURL: "https://newtimesheet-5cb20.firebaseio.com",
+    projectId: "newtimesheet-5cb20",
+    storageBucket: "",
+    messagingSenderId: "231514382243"
+  };
 
+firebase.initializeApp(config);
 
 var createRow = function(data) {
     // Get reference to existing tbody element, create a new table row element
