@@ -8,6 +8,7 @@ var config = {
   };
 
 firebase.initializeApp(config);
+var database = firebase.database();
 
 var createRow = function(data) {
     // Get reference to existing tbody element, create a new table row element
