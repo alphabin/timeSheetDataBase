@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-var createRow = function (employeeName,role,startDate,monthlyRate) {
+var createRow = function (employeeName,role,startDated,monthlyRated) {
     // Get reference to existing tbody element, create a new table row element
     var tBody = $("tbody");
     var tRow = $("<tr>");
@@ -19,17 +19,19 @@ var createRow = function (employeeName,role,startDate,monthlyRate) {
     // This is why we can create and save a reference to a td in the same statement we update its text
     var empoloyeeName = $("<td>").text(employeeName);
     var role = $("<td>").text(role);
-    var startDate = $("<td>").text(startDate);
-    var monthlyRate= $("<td>").text(monthlyRate);
-    // var monthlyRate = $("<td>").text(data.monthlyRate);
+    var startDate = $("<td>").text(startDated);
+    var monthlyRate= $("<td>").text(monthlyRated);
 
+    var start_date = new Date(startDated); //Create start date object by passing appropiate argument
+    var end_date = new Date(Date.now());
+    var total_months = (end_date.getFullYear() - start_date.getFullYear())*12 + (end_date.getMonth() - start_date.getMonth())
+    var monthsTotal= $("<td>").text(total_months);
 
-    
-
-    // total build
-
+    var totalMoney = total_months * monthlyRated;
+    var totalBilled = $("<td>").text(totalMoney);
+  
     // Append the newly created table data to the table row
-    tRow.append(empoloyeeName, role, startDate, monthlyRate);
+    tRow.append(empoloyeeName, role, startDate,monthsTotal, monthlyRate, totalBilled);
     // Append the table row to the table body
     tBody.append(tRow);
 };
