@@ -23,6 +23,9 @@ var createRow = function (employeeName,role,startDate,monthlyRate) {
     var monthlyRate= $("<td>").text(monthlyRate);
     // var monthlyRate = $("<td>").text(data.monthlyRate);
 
+
+    
+
     // total build
 
     // Append the newly created table data to the table row
